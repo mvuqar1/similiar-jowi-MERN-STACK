@@ -67,7 +67,7 @@ export default function CartPage() {
           </Card>
         </div>
       </div>
-      <CreateBill isModalOpen={isModalOpen} handleCancel={handleCancel}/>
+      <CreateBill isModalOpen={isModalOpen} showModal={showModal} handleCancel={handleCancel}/>
     
 
     </>
