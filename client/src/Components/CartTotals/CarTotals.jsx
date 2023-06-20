@@ -168,7 +168,7 @@ export default function CarTotals() {
                 <div className='border-t border-b'>
                     <div className=' flex justify-between p-2'>
                         <b>All total</b>
-                        <span>99 tl</span>
+                        <span>99 azn</span>
                     </div>
                 </div>
                 <div className='border-t border-b'>

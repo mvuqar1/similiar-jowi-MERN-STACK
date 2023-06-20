@@ -1,10 +1,13 @@
 import React from 'react'
-import Categories from '../Categories/Categories'
-import Products from '../Products/Products'
-import CarTotals from '../CartTotals/CarTotals'
+import Categories from '../../Categories/Categories'
+import Products from '../../Products/Products'
+import CarTotals from '../../CartTotals/CarTotals'
+import Header from '../../Header/Header'
 
 export default function Home() {
   return (
+    <>
+    <Header/>
     <div className="home px-6 flex md:flex-row flex-col justify-between gap-10">
         <div className="categories overflow-auto max-h-[calc(100vh-118px)] md:h-auto h-32">
             <Categories/>
@@ -16,5 +19,6 @@ export default function Home() {
             <CarTotals/>
         </div>
     </div>
+    </>
   )
 }

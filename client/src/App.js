@@ -1,14 +1,17 @@
 
 import './App.css';
-import Header from './Components/Header/Header';
-import Home from './Components/Home/Home';
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Home from './Components/Page/Home/Home';
+import CartPage from './Components/Page/CartPage/CartPage';
 
 function App() {
   return (
-    <>
-     <Header/>
-     <Home/>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/cart" element={<CartPage/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
