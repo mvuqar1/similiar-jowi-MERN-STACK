@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from "antd"
-import { ClearOutlined,PlusCircleOutlined,MinusCircleOutlined } from "@ant-design/icons"
+import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 
 export default function CarTotals() {
     return (
@@ -14,14 +14,13 @@ export default function CarTotals() {
                         <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
                         <div className='flex flex-col ml-2'>
                             <b>Alma</b>
-                            <span>1 azn *2</span>
+                            <span className='font-bold'>1 azn *2</span>
                         </div>
                     </div>
                     <div className='flex gap-x-2 items-center'>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />}/>
-                    <span>1</span>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />}/>
-
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                     </div>
                 </li>
                 <li className="cart-item flex items-center justify-around ">
@@ -29,14 +28,13 @@ export default function CarTotals() {
                         <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
                         <div className='flex flex-col ml-2'>
                             <b>Alma</b>
-                            <span>1 azn *2</span>
+                            <span className='font-bold'>1 azn *2</span>
                         </div>
                     </div>
                     <div className='flex gap-x-2 items-center'>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />}/>
-                    <span>1</span>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />}/>
-
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                     </div>
                 </li>
                 <li className="cart-item flex items-center justify-around ">
@@ -44,13 +42,13 @@ export default function CarTotals() {
                         <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
                         <div className='flex flex-col ml-2'>
                             <b>Alma</b>
-                            <span>1 azn *2</span>
+                            <span className='font-bold'>1 azn *2</span>
                         </div>
                     </div>
                     <div className='flex gap-x-2 items-center'>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />}/>
-                    <span>1</span>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />}/>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                     </div>
                 </li>
                 <li className="cart-item flex items-center justify-around ">
@@ -58,13 +56,13 @@ export default function CarTotals() {
                         <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
                         <div className='flex flex-col ml-2'>
                             <b>Alma</b>
-                            <span>1 azn *2</span>
+                            <span className='font-bold'>1 azn *2</span>
                         </div>
                     </div>
                     <div className='flex gap-x-2 items-center'>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />}/>
-                    <span>1</span>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />}/>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                     </div>
                 </li>
                 <li className="cart-item flex items-center justify-around ">
@@ -72,15 +70,97 @@ export default function CarTotals() {
                         <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
                         <div className='flex flex-col ml-2'>
                             <b>Alma</b>
-                            <span>1 azn *2</span>
+                            <span className='font-bold'>1 azn *2</span>
                         </div>
                     </div>
                     <div className='flex gap-x-2 items-center'>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />}/>
-                    <span>1</span>
-                    <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />}/>
-
-
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                    </div>
+                </li>
+                <li className="cart-item flex items-center justify-around ">
+                    <div className='flex items-center'>
+                        <img src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" className='w-16 h-16 object-cover ' />
+                        <div className='flex flex-col ml-2'>
+                            <b>Alma</b>
+                            <span className='font-bold'>1 azn *2</span>
+                        </div>
+                    </div>
+                    <div className='flex gap-x-2 items-center'>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                        <span className='font-bold'>1</span>
+                        <Button type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                     </div>
                 </li>
             </ul>
@@ -104,7 +184,7 @@ export default function CarTotals() {
                     </div>
                 </div>
                 <div className='py-4 px-2'>
-                    <Button type="primary" size='large' className='w-full'>Sifarish ele</Button>
+                    <Button type="primary" size='large' className='primary w-full'>Sifarish ele</Button>
                     <Button type="primary" size='large' danger className='w-full mt-2 flex items-center justify-center' icon={<ClearOutlined />}>Temizle </Button>
                 </div>
             </div>

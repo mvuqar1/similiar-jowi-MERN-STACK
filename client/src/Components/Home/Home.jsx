@@ -5,14 +5,14 @@ import CarTotals from '../CartTotals/CarTotals'
 
 export default function Home() {
   return (
-    <div className="home px-6 flex justify-between gap-10">
-        <div className="categories overflow-auto max-h-[calc(100vh-118px)]">
+    <div className="home px-6 flex md:flex-row flex-col justify-between gap-10">
+        <div className="categories overflow-auto max-h-[calc(100vh-118px)] md:h-auto h-32">
             <Categories/>
         </div>
-        <div className="products flex-[8]">
+        <div className="products flex-[8] overflow-auto max-h-[calc(100vh-118px)]">
             <Products/>
         </div>
-        <div className="cart-wrapper min-w-[300px] md:-mt-[24px] md:-mr-[24px] border">
+        <div className="cart-wrapper min-w-[300px] md:-mt-[24px] md:-mr-[24px] border md:pb-0 pb-16">
             <CarTotals/>
         </div>
     </div>
