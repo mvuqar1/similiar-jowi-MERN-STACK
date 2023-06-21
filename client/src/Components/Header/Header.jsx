@@ -22,16 +22,16 @@ export default function Header() {
                         <span className='md:text-xs text-[10px]'>Home</span>
                     </Link>
                     <Badge count={5} offset={[0, 6]} className='md:flex hidden'>
-                        <Link to={"cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                        <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                             <ShoppingCartOutlined className='md:text-2xl' />
                             <span className='md:text-xs text-[10px]'>Korzina</span>
                         </Link>
                     </Badge>
-                    <Link to={"menu-link"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/bills"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                         <FileTextOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Fatura</span>
                     </Link>
-                    <Link to={"menu-link"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/customers"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                         <UserOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Muwteri</span>
                     </Link>
