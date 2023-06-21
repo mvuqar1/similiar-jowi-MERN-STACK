@@ -5,6 +5,7 @@ import Home from './Components/Page/Home/Home';
 import CartPage from './Components/Page/CartPage/CartPage';
 import BillPage from './Components/Page/BillPage/BillPage';
 import MuwteriPage from './Components/Page/MuteriPage/MuwteriPage';
+import StatistikPage from './Components/Page/StatistikPage/StatistikPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="cart" element={<CartPage/>}/>
       <Route path="bills" element={<BillPage/>}/>
       <Route path="customers" element={<MuwteriPage/>}/>
+      <Route path="statistik" element={<StatistikPage/>}/>
     </Routes>
     </BrowserRouter>
   );

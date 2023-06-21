@@ -51,6 +51,7 @@ export default function BillPage() {
         <>
             <Header />
             <div className='px-6'>
+            <h1 className='text-4xl font-bold text-center mb-4'>Fatura</h1>
                 <Table dataSource={dataSource} columns={columns} bordered pagination={false} />
                 <div className=''>
                     <Card size="small" className='mt-4 ' >

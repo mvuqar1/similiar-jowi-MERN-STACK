@@ -35,7 +35,7 @@ export default function Header() {
                         <UserOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Muwteri</span>
                     </Link>
-                    <Link to={"menu-link"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/statistik"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                         <BarChartOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Statiks</span>
                     </Link>
