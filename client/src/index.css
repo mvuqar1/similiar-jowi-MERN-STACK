@@ -11,9 +11,9 @@ body {
 }
 
 @media(min-width:768px){
-  body{
+  /* body{
     overflow: hidden;
-  }
+  } */
   .ant-btn-primary{
     background-color: #1677ff;
   }

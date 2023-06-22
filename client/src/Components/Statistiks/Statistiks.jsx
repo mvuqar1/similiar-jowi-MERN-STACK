@@ -1,6 +1,7 @@
-import React from 'react'
 
-export default function Statistiks({image,title,amount}) {
+
+export default function Statistiks({ image, title, amount }) {
+
     return (
 
         <div className="card-item bg-gray-800 p-8 rounded-lg">
