@@ -6,6 +6,7 @@ import CartPage from './Components/Page/CartPage/CartPage';
 import BillPage from './Components/Page/BillPage/BillPage';
 import MuwteriPage from './Components/Page/MuteriPage/MuwteriPage';
 import StatistikPage from './Components/Page/StatistikPage/StatistikPage';
+import REgister from './Components/Page/Auth/REgister';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="bills" element={<BillPage/>}/>
       <Route path="customers" element={<MuwteriPage/>}/>
       <Route path="statistik" element={<StatistikPage/>}/>
+      <Route path="register" element={<REgister/>}/>
     </Routes>
     </BrowserRouter>
   );

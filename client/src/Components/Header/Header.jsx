@@ -39,7 +39,7 @@ export default function Header() {
                         <BarChartOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Statiks</span>
                     </Link>
-                    <Link to={"menu-link"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/register"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                         <LogoutOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Exit</span>
                     </Link>
