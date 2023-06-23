@@ -51,12 +51,22 @@ export default function REgister() {
                         <Form.Item
                             label="tekrar sifre"
                             name={"repeatPassword"}
+                            dependencies={['password']}
                             rules={[
                                 {
-                                    required: true,
-                                    message: "email yaz"
-                                }
-                            ]}>
+                                  required: true,
+                                  message: 'Shifreni tekrarlayin!',
+                                },
+                                ({ getFieldValue }) => ({
+                                  validator(_, value) {
+                                    if (!value || getFieldValue('password') === value) {
+                                      return Promise.resolve();
+                                    }
+                                    return Promise.reject(new Error('Shifreni duzgun tekrarlayin!'));
+                                  },
+                                }),
+                              ]}
+                            >
                             <Input.Password />
                         </Form.Item>
                         <Form.Item>
