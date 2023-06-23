@@ -1,11 +1,14 @@
 
-import { Form, Input,Button } from 'antd'
-import {Link} from "react-router-dom"
+import { Form, Input, Button } from 'antd'
+import { Link } from "react-router-dom"
+import { Carousel } from 'antd';
 
 
 import React from 'react'
+import AuthCarusel from '../../AuthCarusel/AuthCarusel';
 
 export default function REgister() {
+
     return (
         <div className="h-screen">
             <div className="flex justify-between h-full">
@@ -58,21 +61,34 @@ export default function REgister() {
                         </Form.Item>
                         <Form.Item>
                             <Button
-                            type='primary'
-                            htmlType="submit"
-                            className='w-full'
-                            size="large"
+                                type='primary'
+                                htmlType="submit"
+                                className='w-full'
+                                size="large"
                             >
                                 Yadda Saxla
                             </Button>
                         </Form.Item>
                     </Form>
-                    <div className='flex justify-center absolute left-0 bottom-10 w-full '>
+                    <div className='flex justify-center absolute left-0 bottom-10 w-full  '>
                         Bir hesabiniz var ? &nbsp;
                         <Link to={"/login"} className='text-blue-600'>Indi daxil ol !</Link>
                     </div>
                 </div>
-                <div className='xl:w-4/6 min-w-[800px]'>right</div>
+                <div className='xl:w-4/6 lg:w-3/5 md:w-1/2 md:flex hidden bg-[#6c63ff]'>
+                    <div className='w-full h-full flex items-center'>
+                        <div className='w-full'>
+                        <Carousel autoplay  className='!h-full'>
+                            < AuthCarusel image={"Images/responsive.svg"} title={"Responsive"} desc={"Butun cihaz boyunca uygunluq"}/>
+                            < AuthCarusel image={"Images/statistic.svg"} title={"Statistik"} desc={"Genish tutulan statistikalar"}/>
+                            < AuthCarusel image={"Images/customer.svg"} title={"Musteri memnuniyyeti"} desc={"Teqdimatdan sonra memnun qalan muwteriler"}/>
+                            < AuthCarusel image={"Images/admin.svg"} title={"Idare panel"} desc={"Tek yerden idare"}/>
+                        </Carousel>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     )

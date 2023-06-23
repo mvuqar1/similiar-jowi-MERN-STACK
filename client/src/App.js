@@ -7,6 +7,7 @@ import BillPage from './Components/Page/BillPage/BillPage';
 import MuwteriPage from './Components/Page/MuteriPage/MuwteriPage';
 import StatistikPage from './Components/Page/StatistikPage/StatistikPage';
 import REgister from './Components/Page/Auth/REgister';
+import LoginPage from './Components/Page/LoginPage/LoginPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="customers" element={<MuwteriPage/>}/>
       <Route path="statistik" element={<StatistikPage/>}/>
       <Route path="register" element={<REgister/>}/>
+      <Route path="login" element={<LoginPage/>}/>
     </Routes>
     </BrowserRouter>
   );

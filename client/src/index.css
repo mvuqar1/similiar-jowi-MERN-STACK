@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: 'Electrolize', sans-serif;
+  @apply bg-gray-50
 }
 .primary{
   background-color: #1677ff;
