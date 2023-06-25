@@ -1,10 +1,9 @@
-const express=require("express");
 const mongoose=require("mongoose")
 const dotenv=require("dotenv")
-
-const app=express();
 dotenv.config()
-const PORT=5000;
+
+
+
 
 const connect=async()=>{
     try{
@@ -16,7 +15,28 @@ const connect=async()=>{
     }
 };
 
-app.get("/",(req,res)=>res.send("hel"))
+
+
+
+const PORT=5000;
+const express=require("express");
+const app=express();
+const cors=require("cors")
+
+app.use(express.json())
+app.use(cors())
+
+app.get("/",(req,res)=>res.send("hello"))
+
+//routes
+const categoryRoute=require("./routes/categories.js")
+const productRoute=require("./routes/products.js")
+const billRoute=require("./routes/bills.js")
+
+
+app.use("/api/categories",categoryRoute)
+app.use("/api/product",productRoute)
+app.use("/api/bill",billRoute)
 
 
 app.listen(PORT,()=>{
