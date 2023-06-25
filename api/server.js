@@ -32,11 +32,13 @@ app.get("/",(req,res)=>res.send("hello"))
 const categoryRoute=require("./routes/categories.js")
 const productRoute=require("./routes/products.js")
 const billRoute=require("./routes/bills.js")
+const userRoute=require("./routes/auth.js")
 
 
 app.use("/api/categories",categoryRoute)
 app.use("/api/product",productRoute)
 app.use("/api/bill",billRoute)
+app.use("/api/user",userRoute)
 
 
 app.listen(PORT,()=>{
