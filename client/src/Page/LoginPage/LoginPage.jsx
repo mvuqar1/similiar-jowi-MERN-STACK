@@ -4,7 +4,7 @@ import { Carousel } from 'antd';
 
 
 import React from 'react'
-import AuthCarusel from '../../AuthCarusel/AuthCarusel';
+import AuthCarusel from '../../Components/AuthCarusel/AuthCarusel';
 
 export default function LoginPage() {
     return (

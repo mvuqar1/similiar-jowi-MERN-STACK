@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button,Card, Table } from 'antd';
 import { useState } from 'react';
-import Header from '../../Header/Header'
-import CreateBill from '../../CreateBill/CreateBill';
+import Header from '../../Components/Header/Header'
+import CreateBill from '../../Components/CreateBill/CreateBill';
 
 export default function CartPage() {
   const dataSource = [

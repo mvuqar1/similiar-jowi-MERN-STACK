@@ -1,13 +1,13 @@
 
 import './App.css';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Home from './Components/Page/Home/Home';
-import CartPage from './Components/Page/CartPage/CartPage';
-import BillPage from './Components/Page/BillPage/BillPage';
-import MuwteriPage from './Components/Page/MuteriPage/MuwteriPage';
-import StatistikPage from './Components/Page/StatistikPage/StatistikPage';
-import REgister from './Components/Page/Auth/REgister';
-import LoginPage from './Components/Page/LoginPage/LoginPage';
+import Home from './Page/Home/Home';
+import CartPage from './Page/CartPage/CartPage';
+import BillPage from './Page/BillPage/BillPage';
+import MuwteriPage from './Page/MuteriPage/MuwteriPage';
+import StatistikPage from './Page/StatistikPage/StatistikPage';
+import REgister from './Page/Auth/REgister';
+import LoginPage from './Page/LoginPage/LoginPage';
 
 function App() {
   return (

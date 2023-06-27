@@ -91,7 +91,7 @@ export default function Edit({ editModalOpen, setEditModalOpen, categories, setC
                 bordered 
                 dataSource={categories} 
                 columns={columns} 
-                key={"_id"} 
+                key="_id"
                 />
 
             </Form>

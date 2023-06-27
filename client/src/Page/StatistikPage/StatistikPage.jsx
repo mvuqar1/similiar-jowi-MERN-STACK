@@ -1,5 +1,5 @@
-import Header from '../../Header/Header'
-import Statistiks from '../../Statistiks/Statistiks'
+import Header from '../../Components/Header/Header'
+import Statistiks from '../../Components/Statistiks/Statistiks'
 import React, { useEffect, useState } from 'react'
 import { Area, Pie } from '@ant-design/plots';
 

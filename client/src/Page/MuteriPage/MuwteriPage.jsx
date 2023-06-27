@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../Header/Header'
+import Header from '../../Components/Header/Header'
 import { Table } from 'antd';
 
 export default function MuwteriPage() {

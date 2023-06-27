@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../Header/Header';
+import Header from '../../Components/Header/Header';
 import { Button, Card, Modal, Table } from 'antd';
 
 export default function BillPage() {

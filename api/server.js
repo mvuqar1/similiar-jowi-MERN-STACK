@@ -37,7 +37,7 @@ const userRoute=require("./routes/users.js")
 
 
 app.use("/api/categories",categoryRoute)
-app.use("/api/product",productRoute)
+app.use("/api/products",productRoute)
 app.use("/api/bill",billRoute)
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)

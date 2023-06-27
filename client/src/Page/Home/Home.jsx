@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Categories from '../../Categories/Categories'
-import Products from '../../Products/Products'
-import CarTotals from '../../CartTotals/CarTotals'
-import Header from '../../Header/Header'
+import Categories from '../../Components/Categories/Categories'
+import Products from '../../Components/Products/Products'
+import CarTotals from '../../Components/CartTotals/CarTotals'
+import Header from '../../Components/Header/Header'
 
 export default function Home() {
   const [categories,setCategories]=useState([])

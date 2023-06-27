@@ -1,125 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Products() {
+    const[products,setProducts]=useState([])
+    useEffect(()=>{
+        const getProducts=async()=>{
+            const res=await fetch("http://localhost:5000/api/products/get-all")
+            const data=await res.json()
+            setProducts([...data])
+
+        }
+        getProducts()
+    },[])
   return (
     <div className='products-wrapper grid grid-cols-card gap-4'>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
+        {products.map((item)=>(
+            <div className="products-item border hover:shadow-lg cursor-pointer select-none">
             <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
+                <img className='h-26 object-cover w-full border-b' src={item.img} alt="im" />
             </div>
             <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
+                <span>{item.title}</span>
+                <span>{item.price}</span>
             </div>
         </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
-        <div className="products-item border hover:shadow-lg cursor-pointer select-none">
-            <div className="product-image">
-                <img className='h-26 object-cover w-full border-b' src="https://unimall.az/images/detailed/234/40147561c48cee8b8a64cf76b26cd2cd.jpg" alt="im" />
-            </div>
-            <div className="product-info font-bold flex flex-col p-3">
-                <span>Alma</span>
-                <span> 1 Azn</span>
-            </div>
-        </div>
+        ))}
     </div>
   )
 }
