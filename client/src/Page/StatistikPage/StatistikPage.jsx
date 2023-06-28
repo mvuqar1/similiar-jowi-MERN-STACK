@@ -107,7 +107,7 @@ export default function StatistikPage() {
                <Statistiks
                  title={"Toplam Müşteri"}
                  amount={"10"}
-                 iimagemg={"Images/user.png"}
+                 image={"Images/user.png"}
                />
                <Statistiks
                  title={"Toplam Kazanç"}
