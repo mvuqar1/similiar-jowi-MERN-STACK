@@ -27,7 +27,7 @@ export default function Home() {
             <Categories categories={categories} setCategories={setCategories}/>
         </div>
         <div className="products flex-[8] overflow-auto max-h-[calc(100vh-118px)]">
-            <Products/>
+            <Products categories={categories}/>
         </div>
         <div className="cart-wrapper min-w-[300px] md:-mt-[24px] md:-mr-[24px] border md:pb-0 pb-16">
             <CarTotals/>

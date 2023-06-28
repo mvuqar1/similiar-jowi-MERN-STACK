@@ -2,9 +2,6 @@ const mongoose=require("mongoose")
 const dotenv=require("dotenv")
 dotenv.config()
 
-
-
-
 const connect=async()=>{
     try{
         await mongoose.connect(process.env.MONGO_URL)
@@ -14,8 +11,6 @@ const connect=async()=>{
         throw error
     }
 };
-
-
 
 
 const PORT=5000;
@@ -35,13 +30,11 @@ const billRoute=require("./routes/bills.js")
 const authRoute=require("./routes/auth.js")
 const userRoute=require("./routes/users.js")
 
-
 app.use("/api/categories",categoryRoute)
 app.use("/api/products",productRoute)
 app.use("/api/bill",billRoute)
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
-
 
 app.listen(PORT,()=>{
     connect()
