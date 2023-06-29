@@ -1,47 +1,75 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Header/Header';
 import { Button, Card, Modal, Table } from 'antd';
 
 export default function BillPage() {
-    const dataSource = [
-        {
-            key: '1',
-            name: 'Vuqar',
-            age: 32,
-            address: '10 Downing Street',
-        },
-        {
-            key: '2',
-            name: 'John',
-            age: 42,
-            address: '10 Downing Street',
-        },
-    ];
+  const[billData,setBillData]=useState()
+  
+  useEffect(()=>{
+    const getBills=async()=>{
+      const res=await fetch("http://localhost:5000/api/bill/get-all")
+      const data=await res.json()
+      setBillData(data)
+      
+    }
+    getBills()
+  },[])
 
-    const columns = [
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+      setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+      setIsModalOpen(false);
+  };
+  
+  const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Musteri',
+            dataIndex: 'customerName',
+            key: 'customerName',
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Elaqe nomresi',
+            dataIndex: 'customerPhoneNumber',
+            key: 'customerPhoneNumber',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Yaranma tarixi',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
+            render:(text)=>{
+              return(
+                <p>{text.substring(0,10)}  {text.substring(11,16)}</p>
+              )
+            }
+        },
+        {
+            title: 'Odeme novu',
+            dataIndex: 'paymentMode',
+            key: 'paymentMode',
+            
+        },
+        {
+            title: 'Umumi mebleq',
+            dataIndex: 'totalAmount',
+            key: 'totalAmount',
+            render:(text)=>{
+              return(
+                <p>{text.toFixed(2)} Azn</p>
+              )
+            }
+        },
+        {
+            title: 'Action',
+            render:()=>{
+              return(
+                <Button onClick={showModal}>Duzelt</Button>
+              )
+            }
+            
         },
     ];
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
 
     // const onFinish = (values) => {
     //     console.log(isModalOpen)
@@ -52,7 +80,7 @@ export default function BillPage() {
             <Header />
             <div className='px-6'>
             <h1 className='text-4xl font-bold text-center mb-4'>Fatura</h1>
-                <Table dataSource={dataSource} columns={columns} bordered pagination={false} />
+                <Table dataSource={billData} columns={columns} bordered pagination={false} />
                 <div className=''>
                     <Card size="small" className='mt-4 ' >
                         <Button onClick={showModal} className='primary mt-4 w-full' type='primary' size='large'>Sifarish Yazdir</Button>

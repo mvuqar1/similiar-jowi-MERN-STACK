@@ -1,11 +1,39 @@
 import React from 'react'
-import { Modal, Form, Input, Select, Button, Card } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+import { Modal, Form, Input, Select, Button, Card, message} from 'antd';
+import { reset } from '../../Redux/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
-    console.log("1212")
-    const onFinish = (values) => {
-        console.log(isModalOpen)
+    const cart = useSelector((state) => state.cart)
+    const dispatch = useDispatch()
+    const navigate=useNavigate()
+    const onFinish =async (values) => {
+        try {
+            const res=await fetch("http://localhost:5000/api/bill/add-bill",{
+                method:"POST",
+                body:JSON.stringify({
+                    ...values,
+                    cartItems:cart.cartItems,
+                    subTotal:+cart.total,
+                    tax:+(cart.total * cart.tax / 100),
+                    totalAmount:+(cart.total + +(cart.total * cart.tax / 100))
+
+                }),
+                headers:{"Content-type":"application/json;charset=UTF-8"},
+            })
+            if(res.status===200){
+                message.success("ugurla yuklendi")
+                dispatch(reset())
+                navigate("/bills")
+            }
+            
+        } catch (error) {
+            console.log(error)
+            message.success("sehv getdi")
+            
+        }
         console.log(values)
     };
     return (
@@ -19,19 +47,19 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
                 <Form layout="vertical" onFinish={onFinish}>
                     <Form.Item
                         label="Musteri adi"
-                        name={"user"}
+                        name="customerName"
                         rules={[{ required: true, message: "Username is required" }]} >
                         <Input placeholder="Musterini qeyd et" />
                     </Form.Item>
                     <Form.Item
                         label="Mob nomre"
-                        name={"mob"}
+                        name="customerPhoneNumber"
                         rules={[{ required: true, message: "Mob number is required" }]}>
                         <Input placeholder="Mobil nomre" />
                     </Form.Item>
                     <Form.Item
                         label="Select"
-                        name={"pay"}
+                        name="paymentMode"
                         rules={[{ required: true, message: "Select Pay is required" }]}>
                         <Select placeholder="Odenis usulunu sec">
                             <Select.Option value="Naqd">Naqd</Select.Option>
@@ -40,16 +68,16 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
                     </Form.Item>
                     <Card size="small" >
                         <div className='flex justify-between'>
-                            <span>All total</span>
-                            <span>99 azn</span>
+                            <span>Mebleq</span>
+                            <span>{cart.total.toFixed(2)} Azn</span>
                         </div>
                         <div className='flex justify-between my-2'>
                             <span>EDV 10%</span>
-                            <span className='text-red-600'>9.9 azn</span>
+                            <span className='text-red-600'>{(cart.total * cart.tax / 100).toFixed(2)} Azn</span>
                         </div>
                         <div className='flex justify-between'>
-                            <b>Umumi total</b>
-                            <b>99 azn</b>
+                            <b>Umumi mebleq</b>
+                            <b>{(cart.total + +(cart.total * cart.tax / 100)).toFixed(2)} Azn</b>
                         </div>
                         <div>
                         <Button 
@@ -58,6 +86,7 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
                         type='primary' 
                         size='large'
                         htmlType='submit'
+                        disabled={cart.cartItems.length ===0}
                         >
                             Sifarish ele
                         </Button>
