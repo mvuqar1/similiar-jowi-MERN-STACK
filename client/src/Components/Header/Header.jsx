@@ -20,29 +20,29 @@ export default function Header() {
                 </div>
 
                 <div className="menu-links flex justify-between items-center gap-7 z-40 md:static fixed bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">
-                    <Link to={"/"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/"} className='flex flex-col items-center hover:text-[#40a9ff] transition-all'>
                         <HomeOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Home</span>
                     </Link>
-                    <Badge count={cartStateLength} offset={[0, 6]} className='md:flex hidden'>
+                    <Badge count={cartStateLength} offset={[-2, 2]} className='md:flex hidden items-center'>
                         <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                             <ShoppingCartOutlined className='md:text-2xl' />
                             <span className='md:text-xs text-[10px]'>Korzina</span>
                         </Link>
                     </Badge>
-                    <Link to={"/bills"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/bills"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
                         <FileTextOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Fatura</span>
                     </Link>
-                    <Link to={"/customers"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/customers"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
                         <UserOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Muwteri</span>
                     </Link>
-                    <Link to={"/statistik"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/statistik"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
                         <BarChartOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Statiks</span>
                     </Link>
-                    <Link to={"/register"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/register"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
                         <LogoutOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Exit</span>
                     </Link>
