@@ -2,8 +2,11 @@ import React from 'react'
 import { SearchOutlined, HomeOutlined, ShoppingCartOutlined, FileTextOutlined, UserOutlined, BarChartOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Badge, Input } from 'antd';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+    const cartStateLength=useSelector((state)=>state.cart.cartItems.length)
+    
     return (
         <div className='border-b mb-6'>
             <header className='py-4 px-6 flex justify-between items-center ' >
@@ -21,7 +24,7 @@ export default function Header() {
                         <HomeOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Home</span>
                     </Link>
-                    <Badge count={5} offset={[0, 6]} className='md:flex hidden'>
+                    <Badge count={cartStateLength} offset={[0, 6]} className='md:flex hidden'>
                         <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                             <ShoppingCartOutlined className='md:text-2xl' />
                             <span className='md:text-xs text-[10px]'>Korzina</span>
@@ -44,7 +47,7 @@ export default function Header() {
                         <span className='md:text-xs text-[10px]'>Exit</span>
                     </Link>
                 </div>
-                <Badge count={5} offset={[0, 6]} className='md:hidden flex'>
+                <Badge count={cartStateLength} offset={[0, 6]} className='md:hidden flex'>
                     <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
                         <ShoppingCartOutlined className='text-2xl' />
                         <span className='md:text-xs text-[10px]'>Korzina</span>
