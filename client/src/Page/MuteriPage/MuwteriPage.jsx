@@ -1,38 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Header/Header'
 import { Table } from 'antd';
 
 export default function MuwteriPage() {
-  const dataSource = [
-    {
-      key: '1',
-      name: 'Vuqar',
-      age: 32,
-      address: '10 Downing Street',
-    },
-    {
-      key: '2',
-      name: 'John',
-      age: 42,
-      address: '10 Downing Street',
-    },
-  ];
+  const[billData,setBillData]=useState()
+  useEffect(()=>{
+    const getBills=async()=>{
+      const res=await fetch("http://localhost:5000/api/bill/get-all")
+      const data=await res.json()
+      data.reverse()
+      setBillData(data)
+      
+    }
+    getBills()
+  },[])
+
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
+      title: 'Musteri',
+      dataIndex: 'customerName',
       key: 'name',
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: 'Elaqe nomresi',
+      dataIndex: 'customerPhoneNumber',
+      key: 'mob',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: 'Sifaris tarixi',
+      dataIndex: 'createdAt',
+      key: 'data',
+      render:(text)=>{
+        return(
+          <p>{text.substring(0,10)} {text.substring(11,16)}</p>
+        )
+      }
+
+      
     },
   ];
   return (
@@ -40,7 +45,7 @@ export default function MuwteriPage() {
       <Header />
       <div className='px-6'>
         <h1 className='text-4xl font-bold text-center mb-4'>Muwteriler</h1>
-        <Table dataSource={dataSource} columns={columns} bordered pagination={false} />
+        <Table dataSource={billData} columns={columns} rowKey={(record) => record._id} bordered pagination={false} />
         <div className=''>
         </div>
       </div>

@@ -48,7 +48,7 @@ export default function CarTotals() {
                             </div>
                         </li>
 
-                    ))
+                    )).reverse()
                     : "Sebet Boshdur ..."
                 }
             </ul>

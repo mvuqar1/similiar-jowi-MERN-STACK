@@ -9,6 +9,7 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
     const cart = useSelector((state) => state.cart)
     const dispatch = useDispatch()
     const navigate=useNavigate()
+    
     const onFinish =async (values) => {
         try {
             const res=await fetch("http://localhost:5000/api/bill/add-bill",{
@@ -81,7 +82,7 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
                         </div>
                         <div>
                         <Button 
-                        onClick={() =>{ showModal(); console.log("first"); }} 
+                        // onClick={() =>{ }} 
                         className='primary mt-4 w-full' 
                         type='primary' 
                         size='large'
