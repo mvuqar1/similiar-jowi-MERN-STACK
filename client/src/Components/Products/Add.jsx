@@ -66,7 +66,7 @@ export default function Add({ categories,products, addModalOpen, setAddModalOpen
                     >
                         <Select options={categories.map(category => ({
                             label: category.title,
-                            value: category.title.toLowerCase()
+                            value: category.title
                         }))} placeholder='Kategoriya novunu qeyd edin' />
                     </Form.Item>
                     <Form.Item className='flex justify-end mb-0'>

@@ -83,6 +83,8 @@ export default function StatistikPage() {
       return `${amount.toFixed(2)} Azn`
     }
 
+    const uniqueCustomerNames = [...new Set(data?.map(item => item.customerName))];
+
     return (
          <>
          <Header />
@@ -96,7 +98,7 @@ export default function StatistikPage() {
              <div className="statistic-cards grid xl:grid-cols-4 md:grid-cols-2 my-10 md:gap-10 gap-4">
                <Statistiks
                  title={"Musteri sayi"}
-                 amount={data?.length}
+                 amount={uniqueCustomerNames?.length}
                  image={"Images/user.png"}
                />
                <Statistiks

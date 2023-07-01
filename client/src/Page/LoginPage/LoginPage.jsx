@@ -23,7 +23,7 @@ export default function LoginPage() {
             if(res.status === 200){
                 localStorage.setItem("posUser",JSON.stringify({username: user.username,email: user.email}))
                 message.success("Xosh geldiniz")
-                navigate("/login")
+                navigate("/")
                 setLoading(false)
             }
             else if(res.status===404){

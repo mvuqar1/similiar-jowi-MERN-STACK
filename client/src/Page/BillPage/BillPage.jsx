@@ -67,7 +67,7 @@ export default function BillPage() {
             key:"action",
             render:(_,record)=>{
               return(
-                <Button onClick={() => { showModal(); setCustomer(record)}}>Duzelt</Button>
+                <Button onClick={() => { showModal(); setCustomer(record)}}>Detallar</Button>
 
 
               )
