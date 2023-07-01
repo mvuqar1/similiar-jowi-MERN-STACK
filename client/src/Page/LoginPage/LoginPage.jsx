@@ -1,23 +1,58 @@
-import { Form, Input, Button, Checkbox } from 'antd'
-import { Link } from "react-router-dom"
+import { Form, Input, Button, Checkbox, message } from 'antd'
+import { Link, useNavigate } from "react-router-dom"
 import { Carousel } from 'antd';
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import AuthCarusel from '../../Components/AuthCarusel/AuthCarusel';
 
 export default function LoginPage() {
+    const [loading,setLoading]=useState(false)
+    const navigate=useNavigate()
+
+    const onFinish = async(values) => {
+        setLoading(true)
+        try {
+           const res=await fetch("http://localhost:5000/api/auth/login",{
+                method:"POST",
+                body:JSON.stringify(values),
+                headers:{"Content-type":"application/json;charset=UTF-8"},
+            })
+            const user = await res.json();
+            console.log(await user)
+            if(res.status === 200){
+                localStorage.setItem("posUser",JSON.stringify({username: user.username,email: user.email}))
+                message.success("Xosh geldiniz")
+                navigate("/login")
+                setLoading(false)
+            }
+            else if(res.status===404){
+                message.success("Bele bir email movcud deyil")
+                setLoading(false)
+            }
+            else if(res.status===403){
+                message.success("Sifre yanlish")
+                setLoading(false)
+            }
+        } catch (error) {
+            console.log(error)
+            message.success("Xeta bash verdi")
+            setLoading(false)
+        }
+    }
     return (
         <div className="h-screen">
             <div className="flex justify-between h-full">
                 <div className="xl:px-20 px-10 relative flex flex-col w-full h-full justify-center">
                     <h1 className='text-center text-5xl font bold mb-2'>LOGO</h1>
                     <Form
+                        onFinish={onFinish}
                         layout='vertical'
+                        initialValues={{remember:false}}
                     >
                         <Form.Item
-                            label="Username"
-                            name="username"
+                            label="E-mail"
+                            name="email"
                             rules={[
                                 {
                                     required: true,
@@ -29,7 +64,7 @@ export default function LoginPage() {
                         </Form.Item>
 
                         <Form.Item
-                            label="Password"
+                            label="Sifre"
                             name="password"
                             rules={[
                                 {
@@ -54,10 +89,11 @@ export default function LoginPage() {
                         <Form.Item>
                             <Button type='primary'
                                 htmlType="submit"
-                                className='w-full'
+                                className='w-full primary'
+                                loading={loading}
                                 size="large">
                                 
-                               <Link to={"/"}>Daxil ol</Link> 
+                               Daxil ol
                             </Button>
                         </Form.Item>
                     </Form>

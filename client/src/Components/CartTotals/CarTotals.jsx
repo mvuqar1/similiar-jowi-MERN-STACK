@@ -31,7 +31,7 @@ export default function CarTotals() {
                                 </div>
                             </div>
                             <div className='flex items-center'>
-                                <Button onClick={() => dispatch(increase(item))} type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
+                                <Button onClick={() => dispatch(increase(item))} type="primary" size='middle' className='primary w-full flex items-center justify-center !rounded-full' icon={<PlusCircleOutlined />} />
                                 <span className='font-bold w-6 inline-block text-center'>{item.quantity}</span>
                                 <Button
                                     onClick={() => {
@@ -44,7 +44,7 @@ export default function CarTotals() {
                                             dispatch(decrease(item))
                                         }
                                     }}
-                                    type="primary" size='middle' className='w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
+                                    type="primary" size='middle' className='primary w-full flex items-center justify-center !rounded-full' icon={<MinusCircleOutlined />} />
                             </div>
                         </li>
 

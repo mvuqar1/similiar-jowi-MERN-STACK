@@ -96,11 +96,11 @@ export default function REgister() {
                             <Button
                                 type='primary'
                                 htmlType="submit"
-                                className='w-full'
+                                className='w-full primary'
                                 size="large"
                                 loading={loading}
                             >
-                                Yadda Saxla
+                                Daxil ol
                             </Button>
                         </Form.Item>
                     </Form>

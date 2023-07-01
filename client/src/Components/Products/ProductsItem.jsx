@@ -19,7 +19,7 @@ export default function ProductsItem({ products }) {
                     </div>
                     <div className="product-info font-bold flex flex-col p-3">
                         <span>{item.title}</span>
-                        <span>{item.price}</span>
+                        <span>{item.price} Azn</span>
                     </div>
                 </div>
             ))}

@@ -1,11 +1,24 @@
 import React from 'react'
 import { SearchOutlined, HomeOutlined, ShoppingCartOutlined, FileTextOutlined, UserOutlined, BarChartOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Badge, Input } from 'antd';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Badge, Input, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../../Redux/cartSlice';
 
 export default function Header() {
+    const dispatch = useDispatch()
+    const navigate=useNavigate()
     const cartStateLength=useSelector((state)=>state.cart.cartItems.length)
+
+    const logOut=()=>{
+        if(window.confirm("Cixis etmeye eminsiniz ?")){
+            localStorage.removeItem("posUser")
+            navigate("/login")
+            dispatch(reset())
+            message.success("Yeniden gozleyirik ")
+        }
+    
+    }
     
     return (
         <div className='border-b mb-6'>
@@ -42,10 +55,12 @@ export default function Header() {
                         <BarChartOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Statistika</span>
                     </Link>
-                    <Link to={"/register"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
+                    <div onClick={logOut} >
+                    <Link className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
                         <LogoutOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Cixis</span>
                     </Link>
+                    </div>
                 </div>
                 <Badge count={cartStateLength} offset={[0, 6]} className='md:hidden flex'>
                     <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
