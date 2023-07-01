@@ -1,20 +1,42 @@
 
-import { Form, Input, Button } from 'antd'
-import { Link } from "react-router-dom"
+import { Form, Input, Button, message } from 'antd'
+import { Link, useNavigate } from "react-router-dom"
 import { Carousel } from 'antd';
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import AuthCarusel from '../../Components/AuthCarusel/AuthCarusel'
 
 export default function REgister() {
+    const [loading,setLoading]=useState(false)
+    const navigate=useNavigate()
+    const onFinish = async(values) => {
+        setLoading(true)
+        try {
+           const res=await fetch("http://localhost:5000/api/auth/register",{
+                method:"POST",
+                body:JSON.stringify(values),
+                headers:{"Content-type":"application/json;charset=UTF-8"},
+            })
+            if(res.status === 200){
+                message.success("Ugur ile qeydiyyatdan kecdiniz")
+                navigate("/login")
+                setLoading(false)
+            }
+        } catch (error) {
+            console.log(error)
+            message.success("Xeta bash verdi")
+            setLoading(false)
+        }
+        
+    }
 
     return (
         <div className="h-screen">
             <div className="flex justify-between h-full">
                 <div className="xl:px-20 px-10 relative flex flex-col w-full h-full justify-center">
                     <h1 className='text-center text-5xl font bold mb-2'>LOGO</h1>
-                    <Form layout='vertical'>
+                    <Form layout='vertical' onFinish={onFinish}>
                         <Form.Item
                             label="user name"
                             name={"username"}
@@ -52,6 +74,7 @@ export default function REgister() {
                             label="tekrar sifre"
                             name={"repeatPassword"}
                             dependencies={['password']}
+                            
                             rules={[
                                 {
                                   required: true,
@@ -75,6 +98,7 @@ export default function REgister() {
                                 htmlType="submit"
                                 className='w-full'
                                 size="large"
+                                loading={loading}
                             >
                                 Yadda Saxla
                             </Button>

@@ -45,7 +45,13 @@ export default function MuwteriPage() {
       <Header />
       <div className='px-6'>
         <h1 className='text-4xl font-bold text-center mb-4'>Muwteriler</h1>
-        <Table dataSource={billData} columns={columns} rowKey={(record) => record._id} bordered pagination={false} />
+        <Table 
+        dataSource={billData} 
+        columns={columns} 
+        rowKey={(record) => record._id} 
+        bordered
+        scroll={{x:1000,y:300}}
+        pagination={false} />
         <div className=''>
         </div>
       </div>

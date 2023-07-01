@@ -5,62 +5,48 @@ import { Area, Pie } from '@ant-design/plots';
 
 
 export default function StatistikPage() {
-
-    const [data, setData] = useState([]);
+  
+  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([])
 
     useEffect(() => {
         asyncFetch();
     }, []);
 
     const asyncFetch = () => {
-        fetch('https://gw.alipayobjects.com/os/bmw-prod/360c3eae-0c73-46f0-a982-4746a6095010.json')
+        fetch('http://localhost:5000/api/bill/get-all')
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => {
                 console.log('fetch data failed', error);
             });
     };
+
+    useEffect(() => {
+        const getProducts = async () => {
+            const res = await fetch("http://localhost:5000/api/products/get-all")
+            const data = await res.json()
+            setProducts([...data])
+
+        }
+        getProducts()
+    }, [])
     const config = {
         data,
-        xField: 'timePeriod',
-        yField: 'value',
+        xField: 'customerName',
+        yField: 'subTotal',
         xAxis: {
             range: [0, 1],
         },
     };
 
-    const data2 = [
-        {
-            type: '分类一',
-            value: 27,
-        },
-        {
-            type: '分类二',
-            value: 25,
-        },
-        {
-            type: '分类三',
-            value: 18,
-        },
-        {
-            type: '分类四',
-            value: 15,
-        },
-        {
-            type: '分类五',
-            value: 10,
-        },
-        {
-            type: '其他',
-            value: 5,
-        },
-    ];
+  
 
     const config2 = {
         appendPadding: 10,
-        data: data2,
-        angleField: 'value',
-        colorField: 'type',
+        data,
+        angleField: 'subTotal',
+        colorField: 'customerName',
         radius: 1,
         innerRadius: 0.6,
         label: {
@@ -88,16 +74,20 @@ export default function StatistikPage() {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                 },
-                content: 'AntV\nG2Plot',
+                content: 'Toplam Deyer',
             },
         },
     };
+    const totalAmount=()=>{
+      const amount=data.reduce((total,item)=>total+item.totalAmount,0)
+      return `${amount.toFixed(2)} Azn`
+    }
 
     return (
          <>
          <Header />
          <div className="px-6 md:pb-0 pb-20">
-           <h1 className="text-4xl font-bold text-center mb-4">İstatistiklerim</h1>
+           <h1 className="text-4xl font-bold text-center mb-4">Statistika</h1>
            <div className="statistic-section">
              <h2 className="text-lg">
                Hoş geldin{" "}
@@ -105,23 +95,23 @@ export default function StatistikPage() {
              </h2>
              <div className="statistic-cards grid xl:grid-cols-4 md:grid-cols-2 my-10 md:gap-10 gap-4">
                <Statistiks
-                 title={"Toplam Müşteri"}
-                 amount={"10"}
+                 title={"Musteri sayi"}
+                 amount={data?.length}
                  image={"Images/user.png"}
                />
                <Statistiks
-                 title={"Toplam Kazanç"}
-                 amount={"660.96 ₺"}
+                 title={"Toplam Qazanc"}
+                 amount={totalAmount()}
                  image={"Images/money.png"}
                />
                <Statistiks
-                 title={"Toplam Satış"}
-                 amount={"6"}
+                 title={"Toplam Satis"}
+                 amount={data?.length}
                  image={"Images/sale.png"}
                />
                <Statistiks
-                 title={"Toplam Ürün"}
-                 amount={"28"}
+                 title={"Toplam Mal"}
+                 amount={products.length}
                  image={"Images/product.png"}
                />
              </div>
