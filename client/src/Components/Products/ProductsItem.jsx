@@ -2,7 +2,7 @@ import React from 'react'
 import { addProduct } from '../../Redux/cartSlice'
 import { useDispatch } from 'react-redux'
 
-export default function ProductsItem({ filtered }) {
+export default function ProductsItem({ filtered,search }) {
     const dispact=useDispatch()
 
 
@@ -12,7 +12,9 @@ export default function ProductsItem({ filtered }) {
 
     return (
         <>
-            {filtered.map((item) => (
+            {filtered
+            .filter((item)=>item.title.toLowerCase().includes(search))
+            .map((item) => (
                 <div key={item._id} onClick={()=>handleClick(item)} className="products-item border hover:shadow-lg cursor-pointer transition-all select-none">
                     <div className="product-image">
                         <img className='h-28 object-cover w-full border-b' src={item.img} alt="im" />

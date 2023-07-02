@@ -8,6 +8,7 @@ export default function Home() {
   const [categories,setCategories]=useState([])
   const [products, setProducts] = useState([])
   const [filtered, setFiltered] = useState([])
+  const [search, setSearch] = useState("")
  
   useEffect(()=>{
     const getCategories=async()=>{
@@ -34,13 +35,13 @@ export default function Home() {
 
   return (
     <>
-    <Header/>
+    <Header setSearch={setSearch}/>
     <div className="home px-6 flex md:flex-row flex-col justify-between gap-10">
         <div className="categories overflow-auto max-h-[calc(100vh-118px)] md:h-auto h-32">
             <Categories categories={categories} setCategories={setCategories} products={products} setFiltered={setFiltered}/>
         </div>
         <div className="products flex-[8] overflow-auto max-h-[calc(100vh-118px)]">
-            <Products products={products} setProducts={setProducts} categories={categories} filtered={filtered} />
+            <Products products={products} setProducts={setProducts} categories={categories} filtered={filtered} search={search} />
         </div>
         <div className="cart-wrapper min-w-[300px] md:-mt-[24px] md:-mr-[24px] border md:pb-0 pb-16">
             <CarTotals/>

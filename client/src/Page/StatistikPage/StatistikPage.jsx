@@ -8,6 +8,8 @@ export default function StatistikPage() {
   
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([])
+  const user=JSON.parse(localStorage.getItem("posUser"))
+  console.log(user)
 
     useEffect(() => {
         asyncFetch();
@@ -92,8 +94,8 @@ export default function StatistikPage() {
            <h1 className="text-4xl font-bold text-center mb-4">Statistika</h1>
            <div className="statistic-section">
              <h2 className="text-lg">
-               Hoş geldin{" "}
-               <span className="text-green-700 font-bold text-xl">admin</span>.
+               Xosh geldin{" "}
+               <span className="text-green-700 font-bold text-xl">{user.username}</span>.
              </h2>
              <div className="statistic-cards grid xl:grid-cols-4 md:grid-cols-2 my-10 md:gap-10 gap-4">
                <Statistiks
@@ -112,7 +114,7 @@ export default function StatistikPage() {
                  image={"Images/sale.png"}
                />
                <Statistiks
-                 title={"Toplam Mal"}
+                 title={"Toplam Mehsul"}
                  amount={products.length}
                  image={"Images/product.png"}
                />

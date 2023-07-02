@@ -1,14 +1,16 @@
 import React from 'react'
 import { SearchOutlined, HomeOutlined, ShoppingCartOutlined, FileTextOutlined, UserOutlined, BarChartOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Badge, Input, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../../Redux/cartSlice';
 
-export default function Header() {
+export default function Header({setSearch}) {
     const dispatch = useDispatch()
     const navigate=useNavigate()
     const cartStateLength=useSelector((state)=>state.cart.cartItems.length)
+    const {pathname}=useLocation()
+    console.log(pathname)
 
     const logOut=()=>{
         if(window.confirm("Cixis etmeye eminsiniz ?")){
@@ -28,8 +30,14 @@ export default function Header() {
                         <h2 className='text-2xl font-bold md:text-4xl'>LOGO</h2>
                     </Link>
                 </div>
-                <div className="header-search flex-1 flex justify-center">
-                    <Input size="large" placeholder="Search items" prefix={<SearchOutlined />} className='rounded-full max-w-[800px]' />
+                <div className="header-search flex-1 flex justify-center" onClick={()=>{pathname!=="/" &&navigate("/")}}>
+                    <Input 
+                    size="large" 
+                    placeholder="Search items" 
+                    prefix={<SearchOutlined />} 
+                    
+                    onChange={(e)=>setSearch(e.target.value.toLowerCase())}
+                    className='rounded-full max-w-[800px]' />
                 </div>
 
                 <div className="menu-links flex justify-between items-center gap-7 z-40 md:static fixed bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">
