@@ -4,13 +4,13 @@ import { Badge, Input, message } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../../Redux/cartSlice';
+import "./style.css"
 
 export default function Header({setSearch}) {
     const dispatch = useDispatch()
     const navigate=useNavigate()
     const cartStateLength=useSelector((state)=>state.cart.cartItems.length)
     const {pathname}=useLocation()
-    console.log(pathname)
 
     const logOut=()=>{
         if(window.confirm("Cixis etmeye eminsiniz ?")){
@@ -41,37 +41,37 @@ export default function Header({setSearch}) {
                 </div>
 
                 <div className="menu-links flex justify-between items-center gap-7 z-40 md:static fixed bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">
-                    <Link to={"/"} className='flex flex-col items-center hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/"} className={`menu-link ${pathname==="/"? "active" :""}`}>
                         <HomeOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Esas sehife</span>
                     </Link>
                     <Badge count={cartStateLength} offset={[-2, 2]} className='md:flex hidden items-center'>
-                        <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                        <Link to={"/cart"} className={`menu-link ${pathname==="/cart"? "active" :""}`}>
                             <ShoppingCartOutlined className='md:text-2xl' />
                             <span className='md:text-xs text-[10px]'>Sebet</span>
                         </Link>
                     </Badge>
-                    <Link to={"/bills"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
+                    <Link to={"/bills"} className={`menu-link ${pathname==="/bills"? "active" :""}`}>
                         <FileTextOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Faktura</span>
                     </Link>
-                    <Link to={"/customers"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
+                    <Link to={"/customers"} className={`menu-link ${pathname==="/customers"? "active" :""}`}>
                         <UserOutlined className='md:text-2xl text-2xl' />
-                        <span className='md:text-xs text-[10px]'>MuSteri</span>
+                        <span className='md:text-xs text-[10px]'>Musteri</span>
                     </Link>
-                    <Link to={"/statistik"} className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
+                    <Link to={"/statistik"} className={`menu-link ${pathname==="/statistik"? "active" :""}`}>
                         <BarChartOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Statistika</span>
                     </Link>
                     <div onClick={logOut} >
-                    <Link className='flex flex-col hover:text-[#40a9ff] transition-all items-center'>
+                    <Link className='menu-link items-center'>
                         <LogoutOutlined className='md:text-2xl text-2xl' />
                         <span className='md:text-xs text-[10px]'>Cixis</span>
                     </Link>
                     </div>
                 </div>
                 <Badge count={cartStateLength} offset={[0, 6]} className='md:hidden flex'>
-                    <Link to={"/cart"} className='flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/cart"} className={`menu-link ${pathname==="/cart"? "active" :""}`}>
                         <ShoppingCartOutlined className='text-2xl' />
                         <span className='md:text-xs text-[10px]'>Sebet</span>
                     </Link>

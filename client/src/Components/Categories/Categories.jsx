@@ -18,7 +18,6 @@ export default function Categories({ categories, setCategories,products,setFilte
         }
     },[setFiltered,products,categoryTitle])
 
-console.log(categoryTitle)
     const showAddModal = () => {
         setAddModalOpen(true);
     };
