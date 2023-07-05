@@ -9,8 +9,16 @@ import StatistikPage from './Page/StatistikPage/StatistikPage';
 import REgister from './Page/Auth/REgister';
 import LoginPage from './Page/LoginPage/LoginPage';
 import ProductPage from './Page/ProductPage/ProductPage';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const cart=useSelector((state)=>state.cart)
+
+  useEffect(()=>{
+    localStorage.setItem("cart",JSON.stringify(cart))
+  },[cart])
+
   return (
     <BrowserRouter>
     <Routes>

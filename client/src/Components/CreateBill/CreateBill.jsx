@@ -12,7 +12,7 @@ export default function CreateBill({ isModalOpen, handleCancel,showModal}) {
     
     const onFinish =async (values) => {
         try {
-            const res=await fetch("http://localhost:5000/api/bill/add-bill",{
+            const res=await fetch(process.env.REACT_APP_SERVER_URL + "/api/bill/add-bill",{
                 method:"POST",
                 body:JSON.stringify({
                     ...values,

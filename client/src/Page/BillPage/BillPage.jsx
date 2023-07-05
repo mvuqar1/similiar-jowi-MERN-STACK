@@ -120,7 +120,7 @@ export default function BillPage() {
   
   useEffect(()=>{
     const getBills=async()=>{
-      const res=await fetch("http://localhost:5000/api/bill/get-all")
+      const res=await fetch(process.env.REACT_APP_SERVER_URL + "/api/bill/get-all")
       const data=await res.json()
       data.reverse()
       setBillData(data)

@@ -5,7 +5,7 @@ export default function Edit({ editModalOpen, setEditModalOpen, categories, setC
     const [editingRow, setEditingRow] = useState({})
     const onFinish=(values)=>{
         try {
-            fetch("http://localhost:5000/api/categories/update-category",{
+            fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/update-category",{
                 method:"PUT",
                 body:JSON.stringify({...values,categoryId:editingRow._id}),
                 headers:{"Content-type":"application/json;charset=UTF-8"},
@@ -29,7 +29,7 @@ export default function Edit({ editModalOpen, setEditModalOpen, categories, setC
         console.log(id)
         if(window.confirm("Eminsiniz?")){
         try {
-            fetch("http://localhost:5000/api/categories/delete-category",{
+            fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/delete-category",{
                 method:"DELETE",
                 body:JSON.stringify({categoryId:id}),
                 headers:{"Content-type":"application/json; charset=UTF-8"}
