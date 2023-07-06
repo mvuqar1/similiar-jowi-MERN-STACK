@@ -31,14 +31,14 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                             <div className="bill-details">
                                 <div className="grid sm:grid-cols-4 grid-cols-3 gap-12">
                                     <div className="text-md text-slate-500">
-                                        <p className="font-bold text-slate-700">Fatura Detayı:</p>
+                                        <p className="font-bold text-slate-700">Faktura Detali:</p>
                                         <p>{customer?.customerName}</p>
                                         <p> Fake Street 123</p>
                                         <p> San Javier </p>
                                         <p> CA 1234</p>
                                     </div>
                                     <div className="text-md text-slate-500">
-                                        <p className="font-bold text-slate-700">Fatura:</p>
+                                        <p className="font-bold text-slate-700">Faktura:</p>
                                         The Boring Company
                                         <p> Tesla Street 007</p>
                                         <p> Frisco </p>
@@ -46,23 +46,23 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                     </div>
                                     <div className="text-md text-slate-500">
                                         <div>
-                                            <p className="font-bold text-slate-700">Fatura numarası:</p>
+                                            <p className="font-bold text-slate-700">Faktura nomresi:</p>
                                             <p>00041</p>
                                         </div>
                                         <div>
                                             <p className="font-bold text-slate-700 mt-2">
-                                                Veriliş Tarihi:
+                                                Verilme Tarixi:
                                             </p>
                                             <p>{customer?.createdAt.substring(0, 10)}</p>
                                         </div>
                                     </div>
                                     <div className="text-md text-slate-500 sm:block hidden">
                                         <div>
-                                            <p className="font-bold text-slate-700">Şartlar:</p>
+                                            <p className="font-bold text-slate-700">Şertler:</p>
                                             <p>10 gün</p>
                                         </div>
                                         <div>
-                                            <p className="font-bold text-slate-700 mt-2">Vade:</p>
+                                            <p className="font-bold text-slate-700 mt-2">Catdirilma:</p>
                                             <p>{customer?.createdAt.substring(0, 10)}</p>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                                     <div className="flex flex-col">
                                                         <span className="font-medium">{item?.title}</span>
                                                         <span className="sm:hidden inline-block text-xs">
-                                                            Birim Fiyatı {item?.price} Azn
+                                                            Mehsul qiymeti {item?.price} Azn
                                                         </span>
                                                     </div>
                                                 </td>
@@ -137,7 +137,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                                     <div className="flex flex-col">
                                                         <span className="font-medium">{item?.title}</span>
                                                         <span className="sm:hidden inline-block text-xs">
-                                                            Birim Fiyatı {item?.price} Azn
+                                                            Mehsul qiymeti {item?.price} Azn
                                                         </span>
                                                     </div>
                                                 </td>
@@ -162,7 +162,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                                 scope="row"
                                             >
                                                 <span className="font-normal text-slate-700">
-                                                    Ara Toplam
+                                                    Mebleq
                                                 </span>
                                             </th>
                                             <th
@@ -192,7 +192,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                                 <p className="font-normal text-slate-700">EDV</p>
                                             </th>
                                             <th className="text-right pt-4" scope="row">
-                                                <span className="font-normal text-red-600">{customer?.tax.toFixed(2)}₺</span>
+                                                <span className="font-normal text-red-600">{customer?.tax.toFixed(2)} Azn</span>
                                             </th>
                                         </tr>
                                         <tr>
@@ -211,7 +211,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                                 <p className="font-normal text-slate-700">Umumi mebleq</p>
                                             </th>
                                             <th className="text-right pt-4" scope="row">
-                                                <span className="font-normal text-slate-700">{customer?.totalAmount.toFixed(2)}</span>
+                                                <span className="font-normal text-slate-700">{customer?.totalAmount.toFixed(2)} Azn</span>
                                             </th>
                                         </tr>
                                     </tfoot>
@@ -219,15 +219,7 @@ export default function PrintBill({ setIsModalOpen, isModalOpen, customer }) {
                                 <div className="py-9">
                                     <div className="border-t pt-9 border-slate-200">
                                         <p className="text-sm font-light text-slate-700">
-                                            Ödeme koşulları 14 gündür. Paketlenmemiş Borçların Geç
-                                            Ödenmesi Yasası 0000'e göre, serbest çalışanların bu süreden
-                                            sonra borçların ödenmemesi durumunda 00.00 gecikme ücreti
-                                            talep etme hakkına sahip olduklarını ve bu noktada bu ücrete
-                                            ek olarak yeni bir fatura sunulacağını lütfen unutmayın.
-                                            Revize faturanın 14 gün içinde ödenmemesi durumunda, vadesi
-                                            geçmiş hesaba ek faiz ve %8 yasal oran artı %0,5 Bank of
-                                            England tabanı olmak üzere toplam %8,5 uygulanacaktır.
-                                            Taraflar Kanun hükümleri dışında sözleşme yapamazlar.
+                                        Ödəniş müddəti 14 gündür. Gec Qablaşdırılmamış Borclar.Ödəniş Aktı 0000-a əsasən, frilanserlər bu müddətdən azaddırlar.00:00-dan sonra borcların ödənilməməsi halında gecikmə haqqı tələb etmək hüququna sahib olduqlarını və bu nöqtədə. Nəzərə alın ki, əlavə olaraq yeni faktura təqdim olunacaq.Yenidən işlənmiş hesab-faktura 14 gün ərzində ödənilmədikdə, ödəmə tarixi əvvəlki hesab üzrə əlavə faiz və 8% qanunla müəyyən edilmiş faiz dərəcəsi üstəgəl 0,5% İngiltərə bazası da daxil olmaqla cəmi 8,5% tətbiq olunacaq. Tərəflər Qanunun müddəalarından başqa müqavilə bağlaya bilməzlər.
                                         </p>
                                     </div>
                                 </div>
