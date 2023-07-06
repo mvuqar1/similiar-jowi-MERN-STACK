@@ -16,7 +16,7 @@ export default function StatistikPage() {
     }, []);
 
     const asyncFetch = () => {
-        fetch('http://localhost:5000/api/bill/get-all')
+        fetch(process.env.REACT_APP_SERVER_URL + "/api/bill/get-all")
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => {
