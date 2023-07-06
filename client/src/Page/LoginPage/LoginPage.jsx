@@ -98,7 +98,7 @@ export default function LoginPage() {
                         </Form.Item>
                     </Form>
                     <div className='flex justify-center absolute left-0 bottom-10 w-full  '>
-                        Helem de hesabiniz yoxdur ? &nbsp;
+                        Hele de hesabiniz yoxdur ? &nbsp;
                         <Link to={"/register"} className='text-blue-600'>Qeydiyyatdan kecin !</Link>
                     </div>
                 </div>
